@@ -42,6 +42,7 @@ Public HTML Configuration:
 Open public/storydetail.html.
 
 <script>
+  
     // your desired model API key
   
     var APPID = "xxx";
