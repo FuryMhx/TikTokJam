@@ -21,9 +21,13 @@ javascript
 
 var dbConfig = {
   host: 'localhost',
+  
   port: '3306',
+  
   user: 'root', // Modify with your database username
+  
   password: '', // Modify with your database password
+  
   database: 'story', // Modify with your database name
 };
 
@@ -39,8 +43,11 @@ Open public/storydetail.html.
 
 <script>
     // your desired model API key
+  
     var APPID = "xxx";
+  
     var API_SECRET = "xxx";
+  
     var API_KEY = "xxx";
 </script>
 
