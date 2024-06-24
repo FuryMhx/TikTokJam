@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        .navbar-right {
+            float: right;
+        }
+
+        .img-circle {
+            width: 20px;
+        }
+
+        .navbar-static-top {
+            background: #ffffff !important;
+            margin-bottom: 0 !important;
+            position: fixed !important;
+            z-index: 11111 !important;
+            width: 100vw !important;
+        }
+
+        .zw {
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .img-responsive {
+            height: 100% !important;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .ibox-content-image {
+            height: 200px;
+            text-align: center !important;
+            cursor: pointer;
+        }
+
+        .float-e-margins:hover {
+            box-shadow: 0 0 10px #ccc;
+        }
+        .feed-element img.img-circle{
+            height: auto!important;
+            width: 65px!important;
+            border-radius: 0!important;
+        }
+        .feed-element{
+            cursor: pointer;
+        }
+        .title-line{
+            font-size: 16px;
+        }
+        .text-navy{
+            font-size: 14px;
+        }
+        .media-body{
+            padding: 5px 10px;
+        }
+        .media-body:hover{
+            background: #f0f0f066;
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div class="gray-bg">
+            <nav class="navbar navbar-static-top border-bottom">
+                <div class="navbar-header" onclick="window.location.href='./index.html'">
+                    <span class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
+                        <i class="fa fa-bars"></i>&nbsp;&nbsp;Recommended Stories</span>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li onclick="myprofile()">
+                        <a href="javascript:void(0)">
+                            <img alt="head" class="img-circle" src="./img/head.jpg">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" id="user_name">
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                    <li onclick="logout()">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-sign-out"></i>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Logout
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="zw"></div>
+            <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+                    <div class="col-sm-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Profile Detail</h5>
+                            </div>
+                            <div>
+                                <div class="ibox-content no-padding border-left-right">
+                                    <img alt="image" class="img-responsive" src="img/head.jpg">
+                                </div>
+                                <div class="ibox-content profile-content">
+                                    <h4><strong>Account</strong></h4>
+                                    <p><i class="fa fa-deviantart"></i>&nbsp;&nbsp;&nbsp;<span id="user_name1"></span>
+                                    </p>
+                                    <h5>
+                                        Personality Signature
+                                    </h5>
+                                    <p>
+                                        <i class="fa fa-yelp" style="font-weight: bold;"></i>&nbsp;&nbsp;&nbsp;Knowlegde
+                                        can change your fate and English can accomplish your future.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Historic Records</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="feed-activity-list">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/profile.js"></script>
+
+</body>
+
+</html>

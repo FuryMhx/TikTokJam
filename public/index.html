@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        .navbar-right {
+            float: right;
+        }
+
+        .img-circle {
+            width: 20px;
+        }
+
+        .navbar-static-top {
+            background: #ffffff !important;
+            margin-bottom: 0 !important;
+            position: fixed!important;
+            z-index: 11111!important;
+            width: 100vw!important;
+        }
+        .zw{
+            height: 60px;
+            line-height: 60px;
+        }
+        .img-responsive {
+            height: 100% !important;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .ibox-content-image {
+            height: 200px;
+            text-align: center !important;
+            cursor: pointer;
+        }
+
+        .float-e-margins:hover {
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .ibox-title h5 {
+            /*这里要显示的设置宽度*/
+            width: 100%;
+            overflow: hidden;
+            /*溢出隐藏*/
+            white-space: nowrap;
+            /*溢出不换行*/
+            text-overflow: ellipsis;
+            /*文字超出宽度则显示ellipsis省略号*/
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="gray-bg">
+            <nav class="navbar navbar-static-top  border-bottom">
+                <div class="navbar-header" onclick="window.location.href='./index.html'">
+                    <span class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
+                        <i class="fa fa-bars"></i>&nbsp;&nbsp;Recommended Stories</span>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li onclick="myprofile()">
+                        <a href="javascript:void(0)">
+                            <img alt="head" class="img-circle" src="./img/head.jpg">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" id="user_name">
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                    <li onclick="logout()">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-sign-out"></i>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Logout
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="zw"></div>
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-sm-12 animated" id="story_list">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

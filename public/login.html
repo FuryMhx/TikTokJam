@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .pic{
+            max-width: 100%;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .m-t-n-xs{
+            width: 100%;
+           margin-top: 20px!important;
+           margin-bottom: 20px!important;
+        }
+        .col-sm-right{
+            padding: 0 5%!important;
+            padding-top: 5%!important;
+        }
+        .m-t-none{
+            font-weight: bold;
+        }
+        .m-b{
+            margin: 20px 0;
+            font-size: 16px;
+            color: #1ab394;
+        }
+        .content{
+            width: 100vw;
+            height: 100vh;
+            display: table-cell;
+            vertical-align: middle;
+            padding:5vw ;
+        }
+        .row{
+            border-radius: 10px;
+            background: #ffffff;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <img src="img/yuanxing.png" class="pic">
+            </div>
+            <div class="col-sm-6 col-sm-right">
+                <h2 class="m-t-none text-center">Sign in</h2>
+                <p  class=" m-b">Happy learning and healthy growth.</p>
+                <div>
+                    <div class="form-group"><label><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;Account</label> <input type="text"
+                        autocomplete="off" placeholder="please input your account" class="form-control"  id="username" name="username"></div>
+                    <div class="form-group"><label><i class="fa fa-lock fa-lg"></i>&nbsp;&nbsp;Password</label> <input type="password"
+                        autocomplete="off" placeholder="please input your password" class="form-control"  id="password" name="password" ></div>
+                    <div class="text-center">
+                        <button class="btn btn-primary m-t-n-xs" type="button" onclick="checkForm()"><strong>Log
+                                in</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/common.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Record Detail</title>
+    <style>
+        .navbar-right {
+            float: right;
+        }
+
+        .img-circle {
+            width: 20px;
+        }
+
+        .navbar-static-top {
+            background: #ffffff !important;
+            margin-bottom: 0 !important;
+            position: fixed !important;
+            z-index: 11111 !important;
+            width: 100vw !important;
+        }
+
+        .zw {
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .img-responsive {
+            height: 100% !important;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .ibox-content-image {
+            height: 200px;
+            text-align: center !important;
+            cursor: pointer;
+        }
+
+        .float-e-margins:hover {
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .ibox-title h5 {
+            /*这里要显示的设置宽度*/
+            width: 100%;
+            overflow: hidden;
+            /*溢出隐藏*/
+            white-space: nowrap;
+            /*溢出不换行*/
+            text-overflow: ellipsis;
+            /*文字超出宽度则显示ellipsis省略号*/
+        }
+
+        .col-sm-left {
+            height: 300px;
+        }
+
+        .well-line {
+            background: #ffffff !important;
+        }
+        .up-line{
+            background: #1ab394 !important;
+            padding: 20px;
+            width:300px;
+            float: right;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        .up-line-error{
+            background: #ed5565 !important;
+        }
+        .result-line{
+            font-size: 50px;
+        }
+        .diff-wrapper .col-md-4{
+            margin: 10px 0;
+        }
+        .diff-wrapper .col-md-4 div{
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="gray-bg">
+            <nav class="navbar navbar-static-top  border-bottom">
+                <div class="navbar-header" onclick="window.location.href='./index.html'">
+                    <span class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
+                        <i class="fa fa-bars"></i>&nbsp;&nbsp;Recommended Stories</span>
+                </div>
+                <div class="navbar-header" onclick="window.location.href='./profile.html'">
+                    <span class="navbar-minimalize minimalize-styl-2 btn btn-white ">
+                        <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Back</span>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li onclick="myprofile()">
+                        <a href="javascript:void(0)">
+                            <img alt="head" class="img-circle" src="./img/head.jpg">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" id="user_name">
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                    <li onclick="logout()">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-sign-out"></i>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Logout
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="zw"></div>
+            <div class="wrapper wrapper-content" style="display: none;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="ibox-content p-xl">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-left">
+                                    <img alt="image" class="img-responsive" id="oriimage" src="">
+                                </div>
+
+                                <div class="col-sm-6 text-right" >
+                                    <h1 class="result-line"><span id="contentresult">Story Complete!</span></h1>
+                                    <h4 class="text-info">Story Title</h4>
+                                    <h4 class="text-muted" id="orititle">The Very Hungry Caterpillar</h4>
+                                    <h4 class="text-info">Operation Time</h4>
+                                    <h4 class="text-muted" id="logtime">06/02/2024 12:00:00</h4>
+                                    <div class="up-line" id="contentresult1" style="display: none;">
+                                        <h1>LEVEL UP!</h1>
+                                        <h1> Adjusting Difficulty</h1>
+                                    </div>
+                                    <div class="up-line up-line-error" id="contentresult2" style="display: none;">
+                                        <h1>TRY AGAIN!</h1>
+                                        <h1> Go Go Go Go Go</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="well m-t"><strong>Tips:</strong>
+                                <ins>The background marked in green is the redundant part</ins>
+                                <span style="background-color: #ffc6c6;">The background is marked with pink is the
+                                    missing part</span>
+                            </div>
+                            <div class="well well-line">
+                                <div class="row diff-wrapper">
+                                    <div class="col-md-4">
+                                        <h2>Oryginal text</h2>
+                                        <div class="original" id="oricontent"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h2>User recording</h2>
+                                        <div class="changed" id="usercontent"></div>
+                                    </div>
+                                    <div class="col-md-4" id="resultshow">
+                                        <h2>Diff results</h2>
+                                        <div class="diff1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/diff_match_patch.js"></script>
+    <script src="./js/jquery.pretty-text-diff.min.js"></script>
+    <script src="./js/hisdetail.js"></script>
+
+</body>
+
+</html>

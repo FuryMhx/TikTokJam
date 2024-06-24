@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Detail</title>
+    <style>
+        .navbar-right {
+            float: right;
+        }
+
+        .img-circle {
+            width: 20px;
+        }
+
+        .navbar-static-top {
+            background: #ffffff !important;
+            margin-bottom: 0 !important;
+            position: fixed !important;
+            z-index: 11111 !important;
+            width: 100vw !important;
+        }
+
+        .zw {
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .img-responsive-bg {
+            height: 300px !important;
+        }
+
+        .img-responsive {
+            height: 100% !important;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .up-line {
+            background: #1ab394 !important;
+            padding: 20px;
+            width: 300px;
+            float: right;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .up-line-error {
+            background: #ed5565 !important;
+        }
+
+        .article-title {
+            margin: 0 !important;
+        }
+
+        .social-body p {
+            font-size: 16px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="gray-bg">
+            <nav class="navbar navbar-static-top  border-bottom">
+                <div class="navbar-header" onclick="window.location.href='./index.html'">
+                    <span class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
+                        <i class="fa fa-bars"></i>&nbsp;&nbsp;Recommended Stories</span>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li onclick="myprofile()">
+                        <a href="javascript:void(0)">
+                            <img alt="head" class="img-circle" src="./img/head.jpg">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" id="user_name">
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                    <li onclick="logout()">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-sign-out"></i>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Logout
+                                </font>
+                            </font>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="zw"></div>
+            <div class="wrapper wrapper-content  animated fadeInRight article">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <div class="text-center article-title">
+                                    <h2 id="title"></h2>
+                                </div>
+                                <p class="img-responsive-bg"> <img alt="image" class="img-responsive " id="image"
+                                        src=""></p>
+                                <div class="text-center article-title ">
+                                    <h1 class="article-title-read">READ ALOUD!</h1>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <button class="btn btn-success  dim startbtn" type="button"
+                                            onclick="doRecord('start')"><i
+                                                class="fa fa-play"></i>&nbsp;&nbsp;Start&nbsp;&nbsp;Record</button>
+                                        <button class="btn btn-danger  dim endbtn" type="button"
+                                            onclick="doRecord('end')" style="display: none;"><i
+                                                class="fa fa-stop"></i>&nbsp;&nbsp;End&nbsp;&nbsp;Record
+                                            <span class="badge badge-danger" id="during">During
+                                                recording</span></button>
+                                        <div style="display: none;">
+                                            <button id="btn_control">audio start</button>
+                                            <div id="result"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 diff-wrapper">
+                                        <h2>Content</h2>
+                                        <div class="well m-t"><strong>Tips:</strong>
+                                            <ins>The background marked in green is the redundant part</ins>
+                                            <span style="background-color: #ffc6c6;">The background is marked with pink
+                                                is the
+                                                missing part</span>
+                                        </div>
+                                        <div class="social-feed-box">
+                                            <div class="social-avatar">
+                                                <div class="media-body">
+                                                    <a href="javascipt:void(0)">Oryginal text</a>
+                                                </div>
+                                            </div>
+                                            <div class="social-body">
+                                                <p id="content"></p>
+                                            </div>
+                                        </div>
+                                        <div class="social-feed-box social-feed-show" style="display: none;">
+                                            <div class="social-avatar">
+                                                <div class="media-body">
+                                                    <a href="javascipt:void(0)">User recording</a>
+                                                </div>
+                                            </div>
+                                            <div class="social-body">
+                                                <p id="usercontent"></p>
+                                            </div>
+                                        </div>
+                                        <div class="social-feed-box social-feed-show" style="display: none;">
+                                            <div class="social-avatar">
+                                                <div class="media-body">
+                                                    <a href="javascipt:void(0)">Diff results</a>
+                                                </div>
+                                            </div>
+                                            <div class="social-body">
+                                                <p id="diffResults"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/diff_match_patch.js"></script>
+    <script src="./js/jquery.pretty-text-diff.min.js"></script>
+    <script src="./js/luying/crypto-js.js"></script>
+    <script src="./js/dist/index.umd.js"></script>
+    <script>
+        //讯飞里面找
+        var APPID = "bfa0c071";
+        var API_SECRET = "ZDM2ZDA0YTc5MTJkN2VhMzQxOGZkZjdl";
+        var API_KEY = "49171c5c98058c7e416df83df152931c";
+    </script>
+    <script src="./js/storydetail.js"></script>
+
+</body>
+
+</html>
