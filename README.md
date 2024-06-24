@@ -20,6 +20,7 @@ javascript
 
 
 var dbConfig = {
+
   host: 'localhost',
   
   port: '3306',
@@ -29,6 +30,7 @@ var dbConfig = {
   password: '', // Modify with your database password
   
   database: 'story', // Modify with your database name
+  
 };
 
 ## Import the Database Schema:
@@ -50,6 +52,7 @@ Open public/storydetail.html.
     var API_SECRET = "xxx";
   
     var API_KEY = "xxx";
+  
 </script>
 
 ## Database Tables
